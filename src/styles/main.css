@@ -3342,3 +3342,138 @@ button, .nav-btn, .side-label {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
+/* ==========================================================================
+   ULTRA-LUCID MOBILE RESPONSIVENESS & UNIVERSAL DEVICE ADAPTABILITY
+   ========================================================================== */
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+}
+
+@media (max-width: 992px) {
+  /* Hide side rotated labels on tablet/mobile so they never overlap content */
+  .side-label {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    padding: 8px 14px;
+  }
+
+  .about-section-premium {
+    padding: 60px 16px;
+  }
+
+  .about-main-heading {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    word-break: break-word;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .about-portrait-img {
+    max-height: 240px;
+    width: auto;
+  }
+
+  .about-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-about-primary,
+  .btn-about-sec {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .techstack-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .achievements-grid-3col {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .personal-details-card {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 16px;
+  }
+
+  /* Igloo 3D Stage Responsive Tweaks */
+  #igloo-stage-wrapper {
+    height: 380px !important;
+    min-height: 340px !important;
+  }
+
+  .igloo-stage-ui {
+    width: 96%;
+    bottom: 16px;
+  }
+
+  .igloo-tabs-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .igloo-tab {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .toast-notification {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header-kicker {
+    font-size: 0.85rem;
+  }
+
+  .terminal-body {
+    font-size: 0.78rem;
+  }
+
+  .techstack-card {
+    padding: 16px;
+  }
+
+  .training-card-featured {
+    padding: 18px 14px;
+  }
+
+  .training-badge-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
