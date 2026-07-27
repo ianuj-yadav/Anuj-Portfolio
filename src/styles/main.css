@@ -3298,3 +3298,47 @@ button, .nav-btn, .side-label {
   padding: 5px 14px;
   border-radius: 20px;
 }
+
+/* ==========================================================================
+   TACTILE MICRO-GRAIN GLASSMORPHISM & GLOBAL TOAST NOTIFICATIONS
+   ========================================================================== */
+
+.about-card,
+.modal-panel,
+.drawer-panel,
+.training-card-featured,
+.techstack-card,
+.achievement-card {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.toast-notification {
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  z-index: 999999;
+  background: rgba(18, 16, 25, 0.92);
+  border: 1px solid rgba(29, 94, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(29, 94, 255, 0.2);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.toast-notification.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

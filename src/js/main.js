@@ -73,6 +73,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   };
 
+  // Global Toast Feedback System
+  let toastEl = null;
+  window.showToast = (message) => {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'toast-notification';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.innerHTML = `<span>🚀</span> <span>${message}</span>`;
+    toastEl.classList.add('active');
+    setTimeout(() => {
+      toastEl.classList.remove('active');
+    }, 2800);
+  };
+
+  // Email & Contact Copy Toast Trigger
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a[href^="mailto:"], .copy-email-btn');
+    if (target) {
+      const email = target.getAttribute('href')?.replace('mailto:', '') || 'ianujy@gmail.com';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email);
+      }
+      window.showToast(`Email (${email}) copied to clipboard!`);
+    }
+  });
+
   // Set initial hidden states BEFORE intro fades
   prepareOpeningSequence();
 

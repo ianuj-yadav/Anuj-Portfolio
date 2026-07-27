@@ -16,6 +16,19 @@ export class IglooContactEngine {
     this.currentTab = 'github';
     this.soundEnabled = true;
 
+    // Visibility & Viewport Intersection Optimizer
+    this.isVisible = true;
+    this.isTabActive = true;
+    if ('IntersectionObserver' in window && this.container) {
+      const observer = new IntersectionObserver((entries) => {
+        this.isVisible = entries[0].isIntersecting;
+      }, { threshold: 0.1 });
+      observer.observe(this.container);
+    }
+    document.addEventListener('visibilitychange', () => {
+      this.isTabActive = !document.hidden;
+    });
+
     this.initThree();
     this.createStageGeometries();
     this.createParticleCloud();
@@ -325,6 +338,8 @@ export class IglooContactEngine {
 
   animate() {
     requestAnimationFrame(() => this.animate());
+
+    if (!this.isVisible || !this.isTabActive) return;
 
     const time = Date.now() * 0.001;
 
