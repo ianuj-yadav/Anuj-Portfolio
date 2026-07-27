@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANUJ YADAV — AI & Software Developer Portfolio</title>
+  
+  <!-- Global Error Handler for Debugging -->
+  <script>
+    window.addEventListener('error', function(e) {
+      const err = document.createElement('div');
+      err.style = 'position:fixed;top:0;left:0;z-index:9999999;background:red;color:white;padding:20px;font-family:monospace;width:100vw;word-wrap:break-word;';
+      err.textContent = 'Error: ' + e.message + ' at ' + e.filename + ':' + e.lineno;
+      document.body.appendChild(err);
+    });
+    window.addEventListener('unhandledrejection', function(e) {
+      const err = document.createElement('div');
+      err.style = 'position:fixed;top:50px;left:0;z-index:9999999;background:orange;color:white;padding:20px;font-family:monospace;width:100vw;word-wrap:break-word;';
+      err.textContent = 'Unhandled Promise: ' + e.reason;
+      document.body.appendChild(err);
+    });
+  </script>
+
+  <meta name="description" content="Portfolio of Anuj Yadav, an AI and Software Developer building practical GenAI, automation, data, and full-stack products.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Fonts: Orbitron, Anton, Bebas Neue, Syne, Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Orbitron:wght@800;900&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <link rel="stylesheet" href="/src/styles/modals.css">
+  <link rel="stylesheet" href="/src/styles/flowing-menu.css">
+</head>
+<body>
+
+  <!-- Floating Toast Notification Alert -->
+  <div id="toast-notification" class="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- Clean Fullscreen Portfolio App Wrapper -->
+  <div class="portfolio-app-container" id="top">
+    
+    <!-- Fade-In Smooth Intro Screen -->
+    <div id="intro-screen" class="intro-screen" style="position: fixed; inset: 0; width: 100vw; height: 100vh; background-color: #000; z-index: 999999; pointer-events: auto;"></div>
+
+    <!-- Retro CRT Monitor Scanline & Vignette Overlay -->
+    <div class="crt-screen-overlay" aria-hidden="true"></div>
+
+    <!-- Page Transition Curtain -->
+    <div id="page-transition-curtain" class="page-transition-curtain"></div>
+
+    <!-- Main Page Content Wrapper -->
+    <main id="main-content-area" class="main-content-area">
+    <!-- Hero Portrait Stage with Clean Galaxy Canvas Background & Enriched SVG Portrait Frame -->
+    <div class="canvas-stage">
+      <div id="beams-background-root" style="position: absolute; inset: 0; z-index: 0; pointer-events: none;"></div>
+      <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMax meet" class="hero-static-portrait hero-image-portrait hero-svg-frame" style="position: relative; z-index: 1; pointer-events: auto; width: 100%; height: 100%; max-height: 98vh; filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));">
+        <!-- Clean, Enlarged User Cutout Portrait Image with Zero Artificial Head Glow -->
+        <image
+          href="/assets/anuj-poly-cutout.png"
+          x="-50"
+          y="-10"
+          width="900"
+          height="1040"
+          preserveAspectRatio="xMidYMax meet"
+        />
+      </svg>
+    </div>
+
+    <!-- Floating Frosted Glass Header Navigation Bar -->
+    <header class="top-nav">
+      <a class="brand-logo" id="brand-logo" href="#top" onclick="event.preventDefault(); window.scrollToSection(0);" aria-label="Back to top">
+        <span class="logo-text">ANUJ YADAV</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <button class="nav-btn magnetic" onclick="window.scrollToSection(0)"><span class="magnetic-text">HERO</span></button>
+        <button class="nav-btn magnetic" data-modal="about" aria-controls="modal-about"><span class="magnetic-text">ABOUT ME</span></button>
+        <button class="nav-btn magnetic" data-modal="resume" aria-controls="modal-resume"><span class="magnetic-text">RESUME</span></button>
+        <button class="nav-btn magnetic" data-modal="projects" aria-controls="modal-projects"><span class="magnetic-text">PROJECTS</span></button>
+        <button class="nav-btn magnetic" data-modal="artworks" aria-controls="modal-artworks"><span class="magnetic-text">CERTIFICATIONS</span></button>
+        <button class="nav-btn nav-btn-primary magnetic" data-modal="contact" aria-controls="modal-contact"><span class="magnetic-text">CONTACT</span></button>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        <span aria-hidden="true"></span>
+        <span class="sr-only">Open navigation menu</span>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <button onclick="window.scrollToSection(0)" data-mobile-nav-link>HERO</button>
+      <button data-modal="about" data-mobile-nav-link>ABOUT ME</button>
+      <button data-modal="resume" data-mobile-nav-link>RESUME</button>
+      <button data-modal="projects" data-mobile-nav-link>PROJECTS</button>
+      <button data-modal="artworks" data-mobile-nav-link>CERTIFICATIONS</button>
+      <button class="nav-btn-primary" data-modal="contact" data-mobile-nav-link>LET'S TALK</button>
+    </nav>
+
+    <!-- Side Rotated Navigation Labels (Galekto Style) -->
+    <button class="side-label side-left" id="btn-side-projects" data-modal="projects" aria-controls="modal-projects">
+      <span class="magnetic-text">
+        <span class="side-icon-plus" aria-hidden="true">+</span>
+        <span class="side-label-text">PROJECTS</span>
+      </span>
+    </button>
+    
+    <button class="side-label side-right" id="btn-side-about" data-modal="about" aria-controls="modal-about">
+      <span class="magnetic-text">
+        <span class="side-label-text">ABOUT ME</span>
+        <span class="side-icon-plus" aria-hidden="true">+</span>
+      </span>
+    </button>
+
+    <!-- Galekto Big Hover Overlays (Big Vertical PROJECTS in Red / ABOUT ME in Blue) -->
+    <div class="hover-glow-container hover-glow-left" id="glow-left" style="opacity: 0; pointer-events: none;">
+      <div class="glow-vert-giant glow-tag-red">
+        <span>PROJECTS</span>
+      </div>
+    </div>
+
+    <div class="hover-glow-container hover-glow-right" id="glow-right" style="opacity: 0; pointer-events: none;">
+      <div class="glow-vert-giant glow-tag-blue">
+        <span>ABOUT ME</span>
+      </div>
+    </div>
+
+    <!-- Hero Stage Typography: ANUJ YADAV Positioned Cleanly at Bottom -->
+    <div class="hero-typography-container">
+      <div class="title-ambient-glow"></div>
+      <div class="hero-badge">AI &amp; SOFTWARE DEVELOPER • B.TECH CSE AMITY UNIVERSITY</div>
+      <h1 class="hero-title" id="hero-title">ANUJ YADAV</h1>
+      <p class="hero-summary">Building practical AI products, data systems, and full-stack experiences.</p>
+      <div class="hero-actions" aria-label="Portfolio actions">
+        <button class="hero-action hero-action-primary" data-modal="projects">VIEW SELECTED WORK</button>
+        <a class="hero-action hero-action-secondary" href="/assets/anuj-yadav-resume.pdf" download="ANUJ_YADAV_RESUME.pdf">DOWNLOAD RÉSUMÉ</a>
+      </div>
+    </div>
+
+    <!-- Bottom Hero Footer Bar -->
+    <footer class="bottom-hero-bar">
+      <div class="footer-left">
+        <span>NEW DELHI, INDIA • INTERN @ BINARYSOFT TECHNOLOGIES</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/ianuj-yadav" target="_blank" rel="noopener">GITHUB ↗</a>
+        <a href="https://linkedin.com/in/anuj-yadav" target="_blank" rel="noopener">LINKEDIN ↗</a>
+      </div>
+    </footer>
+
+    <!-- Reticle Cursor -->
+    <div id="custom-cursor" class="custom-cursor">
+      <div class="cursor-reticle">
+        <span class="crosshair-icon">+</span>
+      </div>
+      <div class="cursor-label">REVEAL</div>
+    </div>
+
+  <!-- Scrollable Homepage Sections -->
+  <div class="scroll-content-wrapper">
+    
+    <!-- Premium Galekto-Inspired About Section -->
+    <section class="home-section about-section-premium" id="about">
+      <div class="about-container">
+        <div class="about-header-kicker">// 02 . ABOUT ME</div>
+        <h2 class="about-main-heading">ENGINEERING PRACTICAL AI &amp; WEB SYSTEMS</h2>
+        
+        <div class="about-grid">
+          <!-- Left Column: Cutout Portrait & Quick Stats Card -->
+          <div class="about-card about-portrait-card">
+            <div class="portrait-wrapper">
+              <img src="/assets/anuj-cutout-color.png" alt="Anuj Yadav" class="about-portrait-img" />
+              <div class="portrait-badge">
+                <span class="status-dot"></span>
+                <span>AI Developer Intern @ Binarysoft</span>
+              </div>
+            </div>
+            <div class="portrait-info">
+              <h3>ANUJ YADAV</h3>
+              <p class="education-tag">🎓 B.Tech CSE @ Amity University (CGPA: 7.89)</p>
+            </div>
+          </div>
+
+          <!-- Right Column: Terminal Bio & Core Competencies -->
+          <div class="about-card about-terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-buttons">
+                <span class="close-btn"></span>
+                <span class="min-btn"></span>
+                <span class="max-btn"></span>
+              </div>
+              <div class="terminal-title">anuj_yadav — -bash — 80x24</div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-line"><span class="prompt">anuj@macbook:~$</span> cat about.txt</div>
+              <div class="terminal-typewriter" id="typewriter-text">
+                // Results-driven Computer Science Engineer specializing in building Generative AI solutions, enterprise chatbots, automated data ingestion pipelines, and full-stack web applications.
+                <br><br>
+                // Passionate about turning complex AI research into intuitive, production-ready web experiences. Equipped with strong fundamentals in Data Structures, Algorithms, REST Architecture, and Cloud Systems.
+              </div>
+              <div class="terminal-line mt-4"><span class="prompt">anuj@macbook:~$</span> <span class="cursor-blink">_</span></div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="about-actions-row">
+              <button class="btn-about-primary" onclick="document.getElementById('contact-stage-section').scrollIntoView({behavior: 'smooth'})">LETS TALK</button>
+              <a href="/assets/anuj-yadav-resume.pdf" download="ANUJ_YADAV_RESUME.pdf" class="btn-about-sec">DOWNLOAD RÉSUMÉ ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack, Frameworks & Technologies Grid -->
+        <div class="about-techstack-container">
+          <div class="techstack-section-title">
+            <span class="techstack-kicker">// TECH STACK &amp; FRAMEWORKS MATRIX</span>
+            <h3>TECHNOLOGIES, FRAMEWORKS &amp; TOOLING</h3>
+          </div>
+
+          <div class="techstack-grid">
+            
+            <!-- Category 1: AI & LLM Engineering -->
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">🤖</div>
+                <div>
+                  <h4>AI &amp; LLM ENGINEERING</h4>
+                  <span class="techstack-sub">Generative AI, RAG &amp; Agents</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">OpenAI API</span>
+                <span class="tech-tag highlight">LangChain</span>
+                <span class="tech-tag highlight">LlamaIndex</span>
+                <span class="tech-tag">RAG Pipelines</span>
+                <span class="tech-tag">Vector DBs</span>
+                <span class="tech-tag">Prompt Engineering</span>
+                <span class="tech-tag">Hugging Face</span>
+              </div>
+            </div>
+
+            <!-- Category 2: Languages & Fundamentals -->
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">⚡</div>
+                <div>
+                  <h4>LANGUAGES &amp; FUNDAMENTALS</h4>
+                  <span class="techstack-sub">Core Software Fundamentals</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">Java</span>
+                <span class="tech-tag highlight">Python</span>
+                <span class="tech-tag highlight">JavaScript (ES6+)</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Data Structures</span>
+                <span class="tech-tag">Algorithms</span>
+              </div>
+            </div>
+
+            <!-- Category 3: Web Frameworks & Full-Stack -->
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">🌐</div>
+                <div>
+                  <h4>FRAMEWORKS &amp; WEB STACK</h4>
+                  <span class="techstack-sub">Full-Stack &amp; UI Architecture</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">Node.js</span>
+                <span class="tech-tag highlight">Express.js</span>
+                <span class="tech-tag highlight">React</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">Three.js / WebGL</span>
+                <span class="tech-tag">GSAP Motion</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">WebSockets</span>
+              </div>
+            </div>
+
+            <!-- Category 4: Databases, Cloud & DevOps -->
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">🗄️</div>
+                <div>
+                  <h4>CLOUD, DATABASES &amp; DEVOPS</h4>
+                  <span class="techstack-sub">Infrastructure &amp; Storage</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">PostgreSQL</span>
+                <span class="tech-tag highlight">MySQL</span>
+                <span class="tech-tag highlight">MongoDB</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Azure</span>
+                <span class="tech-tag">Git &amp; GitHub</span>
+                <span class="tech-tag">Linux / Bash</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Professional Internships & Work Experience Block -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// PROFESSIONAL EXPERIENCE</span>
+            <h3>INTERNSHIPS &amp; INDUSTRY EXPERIENCE</h3>
+          </div>
+
+          <div class="experience-cards-column">
+            
+            <!-- Experience 1: Binarysoft -->
+            <div class="training-card-featured">
+              <div class="training-badge-row">
+                <div class="training-title-wrap">
+                  <span class="training-icon">💼</span>
+                  <div>
+                    <h4 class="training-title">AI &amp; Software Developer Intern</h4>
+                    <span class="training-issuer">Binarysoft Technologies</span>
+                  </div>
+                </div>
+                <span class="training-date">Present • Active Internship</span>
+              </div>
+              
+              <p class="training-desc">
+                Architecting and deploying client-facing AI chatbot widgets, hybrid fallback query routing engines, and automated data ingestion pipelines. Developing production full-stack web applications with React, Node.js, Express, and high-performance LLM integrations.
+              </p>
+              
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">Generative AI</span>
+                <span class="tech-tag highlight">LLM Chatbots</span>
+                <span class="tech-tag highlight">Node.js &amp; React</span>
+                <span class="tech-tag">Query Routers</span>
+                <span class="tech-tag">Data Ingestion</span>
+                <span class="tech-tag">REST Architecture</span>
+              </div>
+            </div>
+
+            <!-- Experience 2: Deloitte -->
+            <div class="training-card-featured" style="margin-top: 16px;">
+              <div class="training-badge-row">
+                <div class="training-title-wrap">
+                  <span class="training-icon">📊</span>
+                  <div>
+                    <h4 class="training-title">Data Analytics Virtual Intern</h4>
+                    <span class="training-issuer">Deloitte Forage Simulation</span>
+                  </div>
+                </div>
+                <span class="training-date">Completed Simulation</span>
+              </div>
+              
+              <p class="training-desc">
+                Completed intensive forensic technology simulations analyzing large datasets, building automated data ingestion workflows, conducting pattern recognition analytics, and delivering data-driven strategic reports.
+              </p>
+              
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">Data Analytics</span>
+                <span class="tech-tag highlight">Forensic Tech</span>
+                <span class="tech-tag highlight">Data Ingestion</span>
+                <span class="tech-tag">Pattern Recognition</span>
+                <span class="tech-tag">SQL &amp; Python</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Seminars, Bootcamps & Workshops Block -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// BOOTCAMPS &amp; INTENSIVE TRAININGS</span>
+            <h3>SEMINARS, BOOTCAMPS &amp; WORKSHOPS</h3>
+          </div>
+
+          <!-- Bootcamp 1: Built with AI (Google for Developers x Hack2Skill) -->
+          <div class="training-card-featured">
+            <div class="training-badge-row">
+              <div class="training-title-wrap">
+                <span class="training-icon">🤖</span>
+                <div>
+                  <h4 class="training-title">Built with AI Bootcamp &mdash; Gemini 2.0 Live</h4>
+                  <span class="training-issuer">Hack2Skill in collaboration with Google for Developers</span>
+                </div>
+              </div>
+              <span class="training-date">17 July • Hands-On AI Product</span>
+            </div>
+            
+            <p class="training-desc">
+              Attended the Built with AI Bootcamp led by Akaash Tripathi. Challenged myself to immediately turn learning into a working AI product, introducing <strong>Sandra AI</strong> &mdash; a real-time AI voice assistant powered by the <strong>Gemini 2.0 Live API</strong>.
+            </p>
+
+            <ul class="bootcamp-feature-list">
+              <li>🎙️ <strong>Bidirectional Voice Streaming:</strong> Holds natural, real-time voice conversations with low-latency audio streaming.</li>
+              <li>🧠 <strong>Persistent Memory:</strong> Remembers past interaction context using persistent SQLite database storage.</li>
+              <li>📅 <strong>Automated Scheduling:</strong> Schedules meetings directly on Google Calendar with instant Google Meet link creation.</li>
+              <li>📧 <strong>Instant Summaries:</strong> Automatically compiles and emails post-meeting summaries.</li>
+              <li>💻 <strong>Interactive Dashboard:</strong> Built a responsive web control panel for real-time assistant telemetry.</li>
+            </ul>
+
+            <div class="techstack-tags" style="margin-top: 12px;">
+              <span class="tech-tag highlight">Gemini 2.0 Live API</span>
+              <span class="tech-tag highlight">Real-Time Voice AI</span>
+              <span class="tech-tag highlight">SQLite Memory</span>
+              <span class="tech-tag">Google Calendar API</span>
+              <span class="tech-tag">Web Dashboard</span>
+              <span class="tech-tag">Python &amp; WebSockets</span>
+            </div>
+          </div>
+
+          <!-- Bootcamp 2: Microsoft Azure Bootcamp -->
+          <div class="training-card-featured" style="margin-top: 16px;">
+            <div class="training-badge-row">
+              <div class="training-title-wrap">
+                <span class="training-icon">☁️</span>
+                <div>
+                  <h4 class="training-title">Microsoft Azure Bootcamp</h4>
+                  <span class="training-issuer">Microsoft Tech Community Amity</span>
+                </div>
+              </div>
+              <span class="training-date">19 Jun 2026 — 16 Jul 2026</span>
+            </div>
+            
+            <p class="training-desc">
+              Participated in an intensive cloud computing program covering fundamental to advanced Azure architecture. Gained hands-on expertise provisioning Virtual Machines, configuring Azure Blob Storage &amp; IAM security policies, and implementing web applications using Azure App Services.
+            </p>
+            
+            <div class="techstack-tags">
+              <span class="tech-tag highlight">Microsoft Azure</span>
+              <span class="tech-tag highlight">Azure Security</span>
+              <span class="tech-tag highlight">IAM</span>
+              <span class="tech-tag">Azure App Services</span>
+              <span class="tech-tag">VM Provisioning</span>
+              <span class="tech-tag">SQL &amp; SaaS</span>
+              <span class="tech-tag">Cloud AI</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Achievements, Awards & Extra Curricular / NGO Volunteering -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// HONORS, LEADERSHIP &amp; COMMUNITY IMPACT</span>
+            <h3>ACHIEVEMENTS, AWARDS &amp; EXTRA CURRICULAR</h3>
+          </div>
+
+          <div class="achievements-grid-3col">
+            
+            <div class="achievement-card">
+              <div class="achieve-icon">🏆</div>
+              <h4>2nd Rank in Science Olympiad</h4>
+              <span class="achieve-sub">Academic Excellence Award</span>
+              <p>Demonstrated top-tier analytical problem-solving and scientific aptitude among competitive participants.</p>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achieve-icon">🌐</div>
+              <h4>Open Source Contributor @ ELUSOC</h4>
+              <span class="achieve-sub">Developer Community Contribution</span>
+              <p>Active contributor to open-source developer tooling, code reviews, and community repositories at ELUSOC.</p>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achieve-icon">🤝</div>
+              <h4>Educational Support Intern @ Serving Nicely Foundation</h4>
+              <span class="achieve-sub">Dec 2024 — Mar 2025 • NGO Community Volunteering</span>
+              <p>
+                Volunteered in a 5-member team supporting underprivileged students. Served as an Exam Invigilator ensuring disciplined examination standards, provided academic guidance, documented student progress, and cultivated leadership &amp; community engagement.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Personal Details, Languages & Creative Interests -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// PERSONAL PROFILE &amp; INTERESTS</span>
+            <h3>PERSONAL SPECIFICATIONS &amp; PASSIONS</h3>
+          </div>
+
+          <div class="personal-details-card">
+            
+            <div class="profile-details-column">
+              <h4 class="details-heading">📌 PERSONAL SPECIFICATIONS</h4>
+              <ul class="details-list">
+                <li><strong>Date of Birth:</strong> 02 August 2005</li>
+                <li><strong>Nationality &amp; Location:</strong> Paharganj, New Delhi 110055, India</li>
+                <li><strong>Languages Spoken:</strong> English (Professional / Fluent), Hindi (Native)</li>
+                <li><strong>Web Profiles:</strong> GitHub (ianuj-yadav), LinkedIn (anuj-yadav), WhatsApp (ianuj_yadav)</li>
+              </ul>
+            </div>
+
+            <div class="profile-details-column">
+              <h4 class="details-heading">🎨 CREATIVE INTERESTS &amp; PURSUITS</h4>
+              <div class="interests-tags-flex">
+                <span class="interest-pill">✍️ Creative Writing (Poetic Expressions)</span>
+                <span class="interest-pill">📚 World Literature</span>
+                <span class="interest-pill">🎮 Competitive Gaming</span>
+                <span class="interest-pill">🎵 Web Audio &amp; Music DSP</span>
+                <span class="interest-pill">💻 Open-Source Tech Communities</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Infinite Tech Stack Marquee Section -->
+    <section class="home-section tech-stack-section">
+      <h2 class="section-header"><span>//</span> CORE TECH STACK</h2>
+      
+      <div class="marquee-container marquee-left">
+        <div class="marquee-content">
+          <!-- Marquee Item Set 1 -->
+          <div class="tech-pill">Python</div>
+          <div class="tech-pill">JavaScript</div>
+          <div class="tech-pill">React</div>
+          <div class="tech-pill">Node.js</div>
+          <div class="tech-pill">Express.js</div>
+          <div class="tech-pill">Generative AI</div>
+          <div class="tech-pill">LangChain</div>
+          <div class="tech-pill">LlamaIndex</div>
+          <!-- Duplicated for infinite effect -->
+          <div class="tech-pill">Python</div>
+          <div class="tech-pill">JavaScript</div>
+          <div class="tech-pill">React</div>
+          <div class="tech-pill">Node.js</div>
+          <div class="tech-pill">Express.js</div>
+          <div class="tech-pill">Generative AI</div>
+          <div class="tech-pill">LangChain</div>
+          <div class="tech-pill">LlamaIndex</div>
+        </div>
+      </div>
+
+      <div class="marquee-container marquee-right">
+        <div class="marquee-content reverse">
+          <!-- Marquee Item Set 2 -->
+          <div class="tech-pill outline">PostgreSQL</div>
+          <div class="tech-pill outline">MySQL</div>
+          <div class="tech-pill outline">MongoDB</div>
+          <div class="tech-pill outline">AWS</div>
+          <div class="tech-pill outline">Docker</div>
+          <div class="tech-pill outline">Git & GitHub</div>
+          <div class="tech-pill outline">Data Structures</div>
+          <div class="tech-pill outline">Algorithms</div>
+          <!-- Duplicated for infinite effect -->
+          <div class="tech-pill outline">PostgreSQL</div>
+          <div class="tech-pill outline">MySQL</div>
+          <div class="tech-pill outline">MongoDB</div>
+          <div class="tech-pill outline">AWS</div>
+          <div class="tech-pill outline">Docker</div>
+          <div class="tech-pill outline">Git & GitHub</div>
+          <div class="tech-pill outline">Data Structures</div>
+          <div class="tech-pill outline">Algorithms</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Engineering Projects Section -->
+    <section class="home-section projects-landing-section" id="projects">
+      <div class="projects-section-header">
+        <h2 class="section-header"><span>//</span> FEATURED ENGINEERING PROJECTS</h2>
+        <p class="projects-section-subtitle">Explore 7 production-ready AI tools, full-stack architectures, algorithms, and interactive systems.</p>
+      </div>
+
+      <!-- Landing Projects Category Filter Bar -->
+      <div class="projects-filter-bar-main" id="landing-projects-filter">
+        <button class="filter-chip-btn active" data-landing-filter="all">ALL PROJECTS (7)</button>
+        <button class="filter-chip-btn" data-landing-filter="ai">GEN AI &amp; LLMS (2)</button>
+        <button class="filter-chip-btn" data-landing-filter="fullstack">FULL-STACK (3)</button>
+        <button class="filter-chip-btn" data-landing-filter="systems">SYSTEMS &amp; DSA (1)</button>
+        <button class="filter-chip-btn" data-landing-filter="audio">WEB AUDIO (1)</button>
+      </div>
+
+      <div class="modal-body premium-projects-container" id="landing-projects-grid">
+        
+        <!-- Project 1: TDL GPT -->
+        <div class="premium-project-card" data-project-key="tdl-gpt" data-category="ai">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">01</span>
+              <div class="premium-tech-tags">
+                <span>Gen AI</span><span>Python</span><span>Tally 4GL</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">TDL GPT — AI Code Generator</h3>
+            <p class="premium-project-desc">Advanced AI chatbot generating accurate Tally Definition Language (TDL 4GL) code with custom system prompts designed specifically for non-procedural syntax.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/TDL-gpt.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Notes Elitehub -->
+        <div class="premium-project-card" data-project-key="notes-elitehub" data-category="fullstack">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">02</span>
+              <div class="premium-tech-tags">
+                <span>Node.js</span><span>PostgreSQL</span><span>Express</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">Notes-Elitehub Platform</h3>
+            <p class="premium-project-desc">Engineered full backend architecture for an advanced note-taking platform with relational DB schema, user authentication, and CRUD REST APIs.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/Notes-Elite-HUB.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Visual DSA -->
+        <div class="premium-project-card" data-project-key="visual-dsa" data-category="systems">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">03</span>
+              <div class="premium-tech-tags">
+                <span>Python</span><span>Data Structures</span><span>Algorithms</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">Visual DSA Algorithm Platform</h3>
+            <p class="premium-project-desc">Lead Backend Developer architecting an interactive platform to visualize complex Data Structures & Algorithms with real-time state machine tracking.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/Visual-Dsa-Algorithm.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: AI ChatBot -->
+        <div class="premium-project-card" data-project-key="ai-chatbot" data-category="ai">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">04</span>
+              <div class="premium-tech-tags">
+                <span>Python</span><span>OpenAI API</span><span>NLP</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">Conversational AI ChatBot Platform</h3>
+            <p class="premium-project-desc">Intelligent conversational AI chatbot system featuring streaming responses, context memory, and customizable UI embed widgets.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/AI-ChatBot.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: AMS Dashboard -->
+        <div class="premium-project-card" data-project-key="ams-dashboard" data-category="fullstack">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">05</span>
+              <div class="premium-tech-tags">
+                <span>Python</span><span>Java</span><span>RBAC Roles</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">Attendance Management System (AMS)</h3>
+            <p class="premium-project-desc">Automated tracking of student & employee attendance with Role-Based Access Control (Admin, Teacher, Student) and daily automated reporting.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/AMS-Attendance-Management-System.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Classic Piano -->
+        <div class="premium-project-card" data-project-key="classic-piano" data-category="audio">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">06</span>
+              <div class="premium-tech-tags">
+                <span>JavaScript</span><span>Web Audio API</span><span>Synth DSP</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">Classic Web Piano Synthesizer</h3>
+            <p class="premium-project-desc">Interactive polyphonic web piano synthesizer built with Web Audio API, keyboard mapping, and realistic audio envelope synthesis.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/Classic-Piano.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Bilingual Calendar -->
+        <div class="premium-project-card" data-project-key="bilingual-calendar" data-category="fullstack">
+          <div class="premium-card-bg"></div>
+          <div class="premium-card-content">
+            <div class="premium-card-header">
+              <span class="premium-project-num">07</span>
+              <div class="premium-tech-tags">
+                <span>JavaScript</span><span>Localization</span><span>Event Scheduler</span>
+              </div>
+            </div>
+            <h3 class="premium-project-title">Bilingual Calendar & Event System</h3>
+            <p class="premium-project-desc">Dual-language event calendar and scheduling web application supporting English & Hindi i18n localization and event reminders.</p>
+            <div class="premium-card-footer">
+              <a href="https://github.com/ianuj-yadav/Bilingual-Calendar.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+              <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bento Grid Section (Experience & Interests) -->
+    <section class="home-section bento-section" id="bento-grid">
+      <h2 class="section-header"><span>//</span> EXPERIENCE & INTERESTS</h2>
+      <div class="premium-bento-grid">
+        
+        <!-- Large Award Card -->
+        <div class="bento-card bento-large bento-glow-effect">
+          <div class="bento-content">
+            <h3 class="bento-title">🏆 Awards & Honors</h3>
+            <div class="awards-bento-list">
+              <div class="bento-award-item">
+                <strong>Amity University B.Tech CSE</strong>
+                <span>High Academic Performance — CGPA: 7.89/10</span>
+              </div>
+              <div class="bento-award-item">
+                <strong>Deloitte Forage Data Analytics</strong>
+                <span>Completed intensive forensic technology simulations.</span>
+              </div>
+              <div class="bento-award-item">
+                <strong>AWS & Anthropic Certifications</strong>
+                <span>Machine Learning, Prompt Engineering & AI Fluency.</span>
+              </div>
+              <div class="bento-award-item">
+                <strong>Lead Backend Developer Role</strong>
+                <span>Visual DSA Algorithm Platform using Python.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hobby Cards -->
+        <div class="bento-card bento-small bento-glow-effect">
+          <div class="bento-content">
+            <div class="hobby-icon">🤖</div>
+            <h3 class="bento-title">Gen AI & LLMs</h3>
+            <p>Building custom chatbots and prompt templates.</p>
+          </div>
+        </div>
+
+        <div class="bento-card bento-small bento-glow-effect">
+          <div class="bento-content">
+            <div class="hobby-icon">🎵</div>
+            <h3 class="bento-title">Web Audio & DSP</h3>
+            <p>Interactive DSP audio engines & music synthesis.</p>
+          </div>
+        </div>
+
+        <div class="bento-card bento-small bento-glow-effect">
+          <div class="bento-content">
+            <div class="hobby-icon">⚡</div>
+            <h3 class="bento-title">Competitive Coding</h3>
+            <p>Optimizing algorithms in Python and Java.</p>
+          </div>
+        </div>
+
+        <div class="bento-card bento-small bento-glow-effect">
+          <div class="bento-content">
+            <div class="hobby-icon">🌐</div>
+            <h3 class="bento-title">Open Source</h3>
+            <p>Tech blogging and contributing to dev tools.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3D Interactive Igloo-Style Contact Section -->
+    <section class="home-section igloo-contact-section" id="contact-stage-section">
+      <div class="igloo-section-header">
+        <span class="igloo-eyebrow">// 04 . DIRECT TRANSMISSION STAGE</span>
+        <h2 class="igloo-main-title">CONNECT WITH ANUJ</h2>
+        <p class="igloo-subtitle">Hover or select a platform below to morph the 3D particle vortex and launch direct communication.</p>
+      </div>
+
+      <!-- 3D Canvas Stage Container -->
+      <div class="igloo-stage-wrapper" id="igloo-stage-wrapper">
+        <canvas id="igloo-contact-canvas" class="igloo-contact-canvas"></canvas>
+        
+        <!-- Stage Overlay UI Controls -->
+        <div class="igloo-stage-ui">
+          <!-- Audio Sound Toggle -->
+          <button class="igloo-sound-btn" id="igloo-sound-btn" aria-label="Toggle Sound FX">
+            <span class="sound-icon">🔊</span>
+            <span class="sound-text">Sound: ON</span>
+          </button>
+
+          <!-- Interactive Social Tabs Bar -->
+          <div class="igloo-tabs-container" id="igloo-tabs-container" role="tablist">
+            <a href="https://github.com/ianuj-yadav" target="_blank" rel="noopener" class="igloo-tab active" data-tab="github" role="tab">
+              <span class="tab-bracket">[</span>
+              <span class="tab-label">GitHub</span>
+              <span class="tab-bracket">]</span>
+            </a>
+            <a href="https://linkedin.com/in/anuj-yadav" target="_blank" rel="noopener" class="igloo-tab" data-tab="linkedin" role="tab">
+              <span class="tab-bracket">[</span>
+              <span class="tab-label">LinkedIn</span>
+              <span class="tab-bracket">]</span>
+            </a>
+            <a href="https://wa.me/917838042623" target="_blank" rel="noopener" class="igloo-tab" data-tab="whatsapp" role="tab">
+              <span class="tab-bracket">[</span>
+              <span class="tab-label">WhatsApp</span>
+              <span class="tab-bracket">]</span>
+            </a>
+            <a href="mailto:ianujy@gmail.com" class="igloo-tab" data-tab="email" role="tab">
+              <span class="tab-bracket">[</span>
+              <span class="tab-label">Email Direct</span>
+              <span class="tab-bracket">]</span>
+            </a>
+          </div>
+
+          <div class="igloo-status-indicator">
+            <span class="pulse-dot"></span>
+            <span id="igloo-active-channel-text">ACTIVE CHANNEL: GITHUB (ianuj-yadav)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <p>DEVELOPED BY <strong>ANUJ YADAV</strong> &copy; 2026. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+  </div> <!-- End scroll-content-wrapper -->
+
+  <!-- Modal: Full Interactive About Me Drawer Suite -->
+  <div id="modal-about" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="About Anuj Yadav">
+    <div class="modal-panel drawer-panel about-drawer" data-lenis-prevent>
+      <div class="modal-header">
+        <div>
+          <h2>ABOUT ANUJ YADAV</h2>
+          <span class="header-subtitle">AI &amp; Software Developer | B.Tech Computer Science &amp; Engineering</span>
+        </div>
+        <button class="modal-close" data-close="about" aria-label="Close About Me">&times;</button>
+      </div>
+
+      <div class="modal-body drawer-scroll-body about-drawer-body" data-lenis-prevent>
+        
+        <!-- About Hero Header Card -->
+        <div class="about-drawer-hero">
+          <div class="drawer-portrait-frame">
+            <img src="/assets/anuj-cutout-color.png" alt="Anuj Yadav" class="drawer-portrait-img" />
+          </div>
+          
+          <div class="drawer-hero-details">
+            <div class="hero-role-pill">
+              <span class="pulse-dot"></span>
+              <span>AI DEVELOPER INTERN @ BINARYSOFT</span>
+            </div>
+            
+            <h3 class="drawer-hero-name">ANUJ YADAV</h3>
+            <p class="drawer-hero-bio">
+              Results-driven <strong>Computer Science Engineer</strong> specializing in Generative AI, LLM Chatbots, Web Automation Pipelines, and Full-Stack Node.js/React software architecture.
+            </p>
+            
+            <div class="drawer-hero-meta">
+              <span class="meta-pill">📍 New Delhi, India</span>
+              <span class="meta-pill">🎓 Amity University (CGPA: 7.89/10)</span>
+              <span class="meta-pill">✉️ ianujy@gmail.com</span>
+              <span class="meta-pill">📞 +91-7838042623</span>
+            </div>
+
+            <div class="drawer-hero-actions">
+              <button class="hero-action-btn primary" onclick="document.getElementById('contact-stage-section').scrollIntoView({behavior: 'smooth'})">CONNECT WITH ANUJ →</button>
+              <button class="hero-action-btn secondary" data-modal="resume">VIEW FULL RÉSUMÉ ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Terminal Bio Window -->
+        <div class="drawer-terminal-box">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="close-btn"></span>
+              <span class="min-btn"></span>
+              <span class="max-btn"></span>
+            </div>
+            <div class="terminal-title">anuj_yadav — developer_info.sh — 80x24</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="term-green">anuj@macbook:~$</span> <span class="term-cyan">./get_developer_info.sh</span></div>
+            <div class="terminal-typewriter">
+              <span class="term-comment">// Computer Science &amp; Engineering Student at Amity University (2023 — 2027).</span><br>
+              <span class="term-comment">// Currently building client-facing AI chatbot widgets, hybrid fallback query routers, and automated data pipelines at Binarysoft Technologies.</span><br>
+              <span class="term-comment">// Completed Deloitte Data Analytics Internship simulation analyzing forensic datasets.</span>
+            </div>
+            <div class="terminal-line mt-3"><span class="term-green">anuj@macbook:~$</span> <span class="cursor-blink">_</span></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack & Frameworks Matrix inside Modal -->
+        <div class="about-techstack-container" style="margin-top: 10px;">
+          <div class="techstack-section-title">
+            <span class="techstack-kicker">// TECHNOLOGIES &amp; FRAMEWORKS</span>
+            <h3>CORE TECH MATRIX</h3>
+          </div>
+
+          <div class="techstack-grid">
+            
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">🤖</div>
+                <div>
+                  <h4>AI &amp; LLM ENGINEERING</h4>
+                  <span class="techstack-sub">Generative AI &amp; RAG Systems</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">OpenAI API</span>
+                <span class="tech-tag highlight">LangChain</span>
+                <span class="tech-tag highlight">LlamaIndex</span>
+                <span class="tech-tag">RAG Pipelines</span>
+                <span class="tech-tag">Vector DBs</span>
+                <span class="tech-tag">Prompt Tuning</span>
+              </div>
+            </div>
+
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">⚡</div>
+                <div>
+                  <h4>LANGUAGES &amp; DSA</h4>
+                  <span class="techstack-sub">Software Engineering Fundamentals</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">Java</span>
+                <span class="tech-tag highlight">Python</span>
+                <span class="tech-tag highlight">JavaScript (ES6+)</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Data Structures</span>
+              </div>
+            </div>
+
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">🌐</div>
+                <div>
+                  <h4>WEB STACK &amp; FRAMEWORKS</h4>
+                  <span class="techstack-sub">Full-Stack &amp; UI Architecture</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">Node.js</span>
+                <span class="tech-tag highlight">Express.js</span>
+                <span class="tech-tag highlight">React</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">Three.js</span>
+                <span class="tech-tag">REST APIs</span>
+              </div>
+            </div>
+
+            <div class="techstack-card">
+              <div class="techstack-card-header">
+                <div class="techstack-icon">🗄️</div>
+                <div>
+                  <h4>CLOUD &amp; DATABASES</h4>
+                  <span class="techstack-sub">Storage &amp; Infrastructure</span>
+                </div>
+              </div>
+              <div class="techstack-tags">
+                <span class="tech-tag highlight">PostgreSQL</span>
+                <span class="tech-tag highlight">MySQL</span>
+                <span class="tech-tag highlight">MongoDB</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Git</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Seminars, Bootcamps & Workshops Block -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// BOOTCAMPS &amp; INTENSIVE TRAININGS</span>
+            <h3>SEMINARS, BOOTCAMPS &amp; WORKSHOPS</h3>
+          </div>
+
+          <div class="training-card-featured">
+            <div class="training-badge-row">
+              <div class="training-title-wrap">
+                <span class="training-icon">☁️</span>
+                <div>
+                  <h4 class="training-title">Microsoft Azure Bootcamp</h4>
+                  <span class="training-issuer">Microsoft Tech Community Amity</span>
+                </div>
+              </div>
+              <span class="training-date">19 Jun 2026 — 16 Jul 2026</span>
+            </div>
+            
+            <p class="training-desc">
+              Participated in an intensive cloud computing program covering fundamental to advanced Azure architecture. Gained hands-on expertise provisioning Virtual Machines, configuring Azure Blob Storage &amp; IAM security policies, and implementing web applications using Azure App Services.
+            </p>
+            
+            <div class="techstack-tags">
+              <span class="tech-tag highlight">Microsoft Azure</span>
+              <span class="tech-tag highlight">Azure Security</span>
+              <span class="tech-tag highlight">IAM</span>
+              <span class="tech-tag">Azure App Services</span>
+              <span class="tech-tag">VM Provisioning</span>
+              <span class="tech-tag">SQL &amp; SaaS</span>
+              <span class="tech-tag">Cloud AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements, Awards & Extra Curricular / NGO Volunteering -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// HONORS, LEADERSHIP &amp; COMMUNITY IMPACT</span>
+            <h3>ACHIEVEMENTS, AWARDS &amp; EXTRA CURRICULAR</h3>
+          </div>
+
+          <div class="achievements-grid-3col">
+            
+            <div class="achievement-card">
+              <div class="achieve-icon">🏆</div>
+              <h4>2nd Rank in Science Olympiad</h4>
+              <span class="achieve-sub">Academic Excellence Award</span>
+              <p>Demonstrated top-tier analytical problem-solving and scientific aptitude among competitive participants.</p>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achieve-icon">🌐</div>
+              <h4>Open Source Contributor @ ELUSOC</h4>
+              <span class="achieve-sub">Developer Community Contribution</span>
+              <p>Active contributor to open-source developer tooling, code reviews, and community repositories at ELUSOC.</p>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achieve-icon">🤝</div>
+              <h4>Educational Support Intern @ Serving Nicely Foundation</h4>
+              <span class="achieve-sub">Dec 2024 — Mar 2025 • NGO Community Volunteering</span>
+              <p>
+                Volunteered in a 5-member team supporting underprivileged students. Served as an Exam Invigilator ensuring disciplined examination standards, provided academic guidance, documented student progress, and cultivated leadership &amp; community engagement.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Personal Profile, Languages & Creative Interests -->
+        <div class="about-section-block">
+          <div class="block-title">
+            <span class="block-kicker">// PERSONAL PROFILE &amp; INTERESTS</span>
+            <h3>PERSONAL SPECIFICATIONS &amp; PASSIONS</h3>
+          </div>
+
+          <div class="personal-details-card">
+            
+            <div class="profile-details-column">
+              <h4 class="details-heading">📌 PERSONAL SPECIFICATIONS</h4>
+              <ul class="details-list">
+                <li><strong>Date of Birth:</strong> 02 August 2005</li>
+                <li><strong>Nationality &amp; Location:</strong> Paharganj, New Delhi 110055, India</li>
+                <li><strong>Languages Spoken:</strong> English (Professional / Fluent), Hindi (Native)</li>
+                <li><strong>Web Profiles:</strong> GitHub (ianuj-yadav), LinkedIn (anuj-yadav), WhatsApp (ianuj_yadav)</li>
+              </ul>
+            </div>
+
+            <div class="profile-details-column">
+              <h4 class="details-heading">🎨 CREATIVE INTERESTS &amp; PURSUITS</h4>
+              <div class="interests-tags-flex">
+                <span class="interest-pill">✍️ Creative Writing (Poetic Expressions)</span>
+                <span class="interest-pill">📚 World Literature</span>
+                <span class="interest-pill">🎮 Competitive Gaming</span>
+                <span class="interest-pill">🎵 Web Audio &amp; Music DSP</span>
+                <span class="interest-pill">💻 Open-Source Tech Communities</span>
+              </div>
+            </div>
+
+          </div>
+        </div>ology Simulation</strong>
+              <span>Data analytics, data ingestion &amp; pattern recognition.</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Full PDF Resume Viewer Suite -->
+  <div id="modal-resume" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Anuj Yadav Resume PDF">
+    <div class="modal-panel drawer-panel resume-drawer pdf-resume-drawer" data-lenis-prevent>
+      <div class="modal-header">
+        <div>
+          <h2>ANUJ YADAV — CURRICULUM VITAE</h2>
+          <span class="header-subtitle">AI &amp; Software Developer | B.Tech Computer Science &amp; Engineering</span>
+        </div>
+        <div class="modal-header-actions">
+          <a href="/assets/anuj-yadav-resume.pdf" target="_blank" rel="noopener" class="download-resume-btn">OPEN FULLSCREEN ↗</a>
+          <a href="/assets/anuj-yadav-resume.pdf" download="ANUJ_YADAV_RESUME.pdf" class="download-pdf-btn">DOWNLOAD PDF</a>
+          <button class="modal-close" data-close="resume" aria-label="Close Resume">&times;</button>
+        </div>
+      </div>
+      
+      <div class="modal-body pdf-viewer-body" id="resume-pdf-container" data-lenis-prevent>
+        <iframe 
+          src="/assets/anuj-yadav-resume.pdf#toolbar=1&navpanes=0&view=FitH" 
+          title="Anuj Yadav Resume PDF Document" 
+          class="resume-pdf-iframe"
+          loading="eager">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Framer 3D Confidential Folder Projects Drawer (7 Real Projects) -->
+  <div id="modal-projects" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Featured Projects Showcase">
+    <div class="modal-panel drawer-panel framer-projects-drawer" data-lenis-prevent>
+      <div class="modal-header">
+        <div>
+          <h2>PROJECT CASE STUDIES</h2>
+          <span class="header-subtitle">Select a project to explore the role, technical approach, visuals, and implementation notes.</span>
+        </div>
+        <button class="modal-close" data-close="projects" aria-label="Close Projects">&times;</button>
+      </div>
+
+      <!-- Project Filter & Search Toolbar -->
+      <div class="projects-filter-wrapper" id="projects-filter-bar">
+        <div class="projects-search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="project-search-input" placeholder="Search 7 projects by keyword, tech, or role..." autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="filter-chips">
+          <button class="filter-chip-btn active" data-filter="all">ALL (7)</button>
+          <button class="filter-chip-btn" data-filter="ai">GEN AI &amp; LLMS (2)</button>
+          <button class="filter-chip-btn" data-filter="fullstack">FULL-STACK (3)</button>
+          <button class="filter-chip-btn" data-filter="systems">SYSTEMS &amp; DSA (1)</button>
+          <button class="filter-chip-btn" data-filter="audio">WEB AUDIO (1)</button>
+        </div>
+      </div>
+      
+      <div class="modal-body drawer-scroll-body" id="projects-scroll-body" data-lenis-prevent>
+        <div class="premium-projects-container" id="projects-grid-container">
+          
+          <!-- Project 1: TDL GPT -->
+          <div class="premium-project-card" data-project-key="tdl-gpt" data-category="ai">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">01</span>
+                <div class="premium-tech-tags">
+                  <span>Gen AI</span><span>Python</span><span>Tally 4GL</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">TDL GPT — AI Code Generator</h3>
+              <p class="premium-project-desc">Advanced AI chatbot generating accurate Tally Definition Language (TDL 4GL) code with custom system prompts designed specifically for non-procedural syntax.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/TDL-gpt.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Notes Elitehub -->
+          <div class="premium-project-card" data-project-key="notes-elitehub" data-category="fullstack">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">02</span>
+                <div class="premium-tech-tags">
+                  <span>Node.js</span><span>PostgreSQL</span><span>Express</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">Notes-Elitehub Platform</h3>
+              <p class="premium-project-desc">Engineered full backend architecture for an advanced note-taking platform with relational DB schema, user authentication, and CRUD REST APIs.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/Notes-Elite-HUB.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Visual DSA -->
+          <div class="premium-project-card" data-project-key="visual-dsa" data-category="systems">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">03</span>
+                <div class="premium-tech-tags">
+                  <span>Python</span><span>Data Structures</span><span>Algorithms</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">Visual DSA Algorithm Platform</h3>
+              <p class="premium-project-desc">Lead Backend Developer architecting an interactive platform to visualize complex Data Structures & Algorithms with real-time state machine tracking.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/Visual-Dsa-Algorithm.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: AI ChatBot -->
+          <div class="premium-project-card" data-project-key="ai-chatbot" data-category="ai">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">04</span>
+                <div class="premium-tech-tags">
+                  <span>Python</span><span>OpenAI API</span><span>NLP</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">Conversational AI ChatBot Platform</h3>
+              <p class="premium-project-desc">Intelligent conversational AI chatbot system featuring streaming responses, context memory, and customizable UI embed widgets.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/AI-ChatBot.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: AMS Dashboard -->
+          <div class="premium-project-card" data-project-key="ams-dashboard" data-category="fullstack">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">05</span>
+                <div class="premium-tech-tags">
+                  <span>Python</span><span>Java</span><span>RBAC Roles</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">Attendance Management System (AMS)</h3>
+              <p class="premium-project-desc">Automated tracking of student & employee attendance with Role-Based Access Control (Admin, Teacher, Student) and daily automated reporting.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/AMS-Attendance-Management-System.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Classic Piano -->
+          <div class="premium-project-card" data-project-key="classic-piano" data-category="audio">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">06</span>
+                <div class="premium-tech-tags">
+                  <span>JavaScript</span><span>Web Audio API</span><span>Synth DSP</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">Classic Web Piano Synthesizer</h3>
+              <p class="premium-project-desc">Interactive polyphonic web piano synthesizer built with Web Audio API, keyboard mapping, and realistic audio envelope synthesis.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/Classic-Piano.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7: Bilingual Calendar -->
+          <div class="premium-project-card" data-project-key="bilingual-calendar" data-category="fullstack">
+            <div class="premium-card-bg"></div>
+            <div class="premium-card-content">
+              <div class="premium-card-header">
+                <span class="premium-project-num">07</span>
+                <div class="premium-tech-tags">
+                  <span>JavaScript</span><span>Localization</span><span>Event Scheduler</span>
+                </div>
+              </div>
+              <h3 class="premium-project-title">Bilingual Calendar & Event System</h3>
+              <p class="premium-project-desc">Dual-language event calendar and scheduling web application supporting English & Hindi i18n localization and event reminders.</p>
+              <div class="premium-card-footer">
+                <a href="https://github.com/ianuj-yadav/Bilingual-Calendar.git" target="_blank" rel="noopener" class="premium-code-btn" onclick="event.stopPropagation();">CODE ↗</a>
+                <span class="premium-view-btn">EXPLORE CASE STUDY &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: 3-Slide Presentation Carousel Showcase for Projects -->
+  <div id="legacy-project-carousel" class="modal-backdrop project-carousel-backdrop legacy-project-carousel" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Legacy project presentation">
+    <div class="project-carousel-card" id="project-carousel-card">
+      <div class="carousel-header">
+        <div class="carousel-header-info">
+          <h3 id="carousel-project-title">PROJECT TITLE</h3>
+          <span id="carousel-project-tags">TECH STACK</span>
+        </div>
+        <button class="modal-close" id="carousel-close-btn" aria-label="Close Presentation">&times;</button>
+      </div>
+      
+      <div class="carousel-body">
+        <div class="carousel-stage" id="carousel-stage">
+          
+          <!-- Slide 1: Executive Overview & Repo Link -->
+          <div class="carousel-slide">
+            <span class="slide-tag">SLIDE 1 / 3 &mdash; OVERVIEW & REPOSITORY LINKS</span>
+            <h4 class="slide-title" id="slide1-title">Project Title</h4>
+            <p class="slide-desc" id="slide1-desc">Executive description...</p>
+            <ul class="slide-bullets" id="slide1-bullets"></ul>
+            <div class="slide-actions">
+              <a id="slide1-github-btn" href="#" target="_blank" rel="noopener" class="github-link-btn">VIEW REPOSITORY ON GITHUB &nearr;</a>
+            </div>
+          </div>
+
+          <!-- Slide 2: 3-Tab Interactive Visual Showcase -->
+          <div class="carousel-slide">
+            <span class="slide-tag">SLIDE 2 / 3 &mdash; INTERACTIVE VISUAL SHOWCASE SLIDES</span>
+            
+            <!-- Switcher Tabs for Slide 2 -->
+            <div class="slide2-tabs-nav">
+              <button class="slide2-tab-btn active" data-visual="ui">🖥️ UI DASHBOARD</button>
+              <button class="slide2-tab-btn" data-visual="flow">⚡ SYSTEM WORKFLOW</button>
+              <button class="slide2-tab-btn" data-visual="data">📊 DATA & SPECS</button>
+            </div>
+
+            <div class="slide-photo-container">
+              <img id="slide2-img" src="" alt="Project Visual Slide" class="slide-photo-img">
+            </div>
+            <p class="slide-desc" id="slide2-caption">Interactive Visual Slide Breakdown</p>
+          </div>
+
+          <!-- Slide 3: Technical Specs & Architecture -->
+          <div class="carousel-slide">
+            <span class="slide-tag">SLIDE 3 / 3 &mdash; TECHNICAL SPECS & CODE DEEP DIVE</span>
+            <h4 class="slide-title">Architecture & System Implementation</h4>
+            <div class="slide-code-box" id="slide3-code"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Frosted Glass Floating Pill Footer Controls -->
+      <div class="carousel-footer floating-glass-pill">
+        <div class="carousel-indicators">
+          <span class="indicator-dot active" data-slide="0"></span>
+          <span class="indicator-dot" data-slide="1"></span>
+          <span class="indicator-dot" data-slide="2"></span>
+          <span class="slide-counter-text" id="slide-counter-text">SLIDE 1 OF 3</span>
+        </div>
+        
+        <div class="carousel-credit">
+          DEVELOPED BY <strong>ANUJ YADAV</strong>
+        </div>
+
+        <div class="carousel-nav-btns">
+          <button class="carousel-nav-btn" id="carousel-prev-btn">&larr; PREV</button>
+          <button class="carousel-nav-btn" id="carousel-next-btn">NEXT &rarr;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Project Case Study: active, useful project detail rather than a passive presentation -->
+  <div id="modal-project-carousel" class="modal-backdrop project-detail-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Project case study">
+    <article class="project-case-study-card" aria-labelledby="case-project-title">
+      <header class="case-study-header">
+        <div>
+          <p class="case-study-eyebrow" id="case-project-category">PROJECT CASE STUDY</p>
+          <h2 id="case-project-title">Project title</h2>
+        </div>
+        <button class="modal-close" id="case-study-close-btn" aria-label="Close project case study">&times;</button>
+      </header>
+
+      <div class="case-study-body">
+        <section class="case-project-brief" aria-label="Project summary">
+          <p class="case-project-summary" id="case-project-summary"></p>
+          <dl class="case-project-facts">
+            <div>
+              <dt>Primary stack</dt>
+              <dd id="case-project-stack"></dd>
+            </div>
+            <div>
+              <dt>Explore</dt>
+              <dd>Product intent, UI, system workflow, and implementation notes.</dd>
+            </div>
+          </dl>
+          <a id="case-project-github" href="#" target="_blank" rel="noopener" class="case-repository-link">VIEW SOURCE ON GITHUB <span aria-hidden="true">↗</span></a>
+        </section>
+
+        <section class="case-project-explorer" aria-label="Project detail explorer">
+          <div class="case-tabs" role="tablist" aria-label="Case study sections">
+            <button class="case-tab active" id="case-tab-overview" role="tab" aria-selected="true" aria-controls="case-panel-overview" data-case-panel="overview">OVERVIEW</button>
+            <button class="case-tab" id="case-tab-visual" role="tab" aria-selected="false" aria-controls="case-panel-visual" data-case-panel="visual">PRODUCT VISUALS</button>
+            <button class="case-tab" id="case-tab-architecture" role="tab" aria-selected="false" aria-controls="case-panel-architecture" data-case-panel="architecture">TECH NOTES</button>
+          </div>
+
+          <div class="case-panel" id="case-panel-overview" role="tabpanel" aria-labelledby="case-tab-overview">
+            <p class="case-panel-label">WHAT I BUILT</p>
+            <ul class="case-project-points" id="case-project-points"></ul>
+          </div>
+
+          <div class="case-panel" id="case-panel-visual" role="tabpanel" aria-labelledby="case-tab-visual" hidden>
+            <div class="case-visual-switcher" role="group" aria-label="Project visual type">
+              <button class="case-visual-btn active" type="button" data-case-visual="ui" aria-pressed="true">PRODUCT UI</button>
+              <button class="case-visual-btn" type="button" data-case-visual="flow" aria-pressed="false">SYSTEM FLOW</button>
+              <button class="case-visual-btn" type="button" data-case-visual="data" aria-pressed="false">DATA &amp; SPECS</button>
+            </div>
+            <figure class="case-visual-frame">
+              <img id="case-project-image" src="" alt="Project visual" class="case-project-image">
+              <figcaption id="case-project-caption"></figcaption>
+            </figure>
+          </div>
+
+          <div class="case-panel" id="case-panel-architecture" role="tabpanel" aria-labelledby="case-tab-architecture" hidden>
+            <p class="case-panel-label">IMPLEMENTATION SNAPSHOT</p>
+            <pre class="case-code-box" id="case-project-code"></pre>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+
+  <!-- Modal: Certifications Grid Gallery & Search Engine -->
+  <div id="modal-artworks" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Certifications and Trainings">
+    <div class="modal-panel drawer-panel certifications-drawer" data-lenis-prevent>
+      <div class="modal-header">
+        <div>
+          <h2>CERTIFICATIONS & TRAININGS</h2>
+          <span class="header-subtitle">A curated record of 24+ AI, Cloud, Data Science, and Software Credentials.</span>
+        </div>
+        <button class="modal-close" data-close="artworks" aria-label="Close Certifications">&times;</button>
+      </div>
+
+      <!-- Controls Bar: Filter Chips + Search Input -->
+      <div class="certs-controls-bar">
+        <div class="certs-filter-bar" id="certs-filter-bar">
+          <button class="filter-chip-btn active" data-cert-filter="all">ALL (24)</button>
+          <button class="filter-chip-btn" data-cert-filter="aws">AWS</button>
+          <button class="filter-chip-btn" data-cert-filter="azure">AZURE</button>
+          <button class="filter-chip-btn" data-cert-filter="anthropic">ANTHROPIC</button>
+          <button class="filter-chip-btn" data-cert-filter="cs">DATA &amp; CS</button>
+        </div>
+        <div class="certs-search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="certs-search-input" placeholder="Search 24+ certifications..." autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+
+      <div class="modal-body drawer-scroll-body certs-grid-body" data-lenis-prevent>
+        <div id="certifications-grid-container" class="certifications-grid-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Smooth Paper Unfolding 3D Certificate Viewer -->
+  <div id="modal-cert-viewer" class="modal-backdrop cert-viewer-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Certificate Viewer">
+    <div class="paper-certificate-card" id="paper-certificate-card">
+      <div class="paper-header">
+        <h3 id="paper-cert-title">AWS CERTIFIED CLOUD PRACTITIONER</h3>
+        <div class="paper-header-actions">
+          <a id="paper-cert-download" href="#" target="_blank" rel="noopener" class="open-full-btn">OPEN FULL IMAGE &nearr;</a>
+          <button class="paper-close-btn" id="paper-close-btn" aria-label="Close Viewer">&times;</button>
+        </div>
+      </div>
+      <div class="paper-body">
+        <img id="paper-cert-img" src="" alt="Certificate" class="paper-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: In-Browser PDF Resume Preview Lightbox -->
+  <div id="modal-pdf-viewer" class="modal-backdrop pdf-viewer-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Anuj Yadav PDF Resume Lightbox">
+    <div class="pdf-viewer-card" id="pdf-viewer-card">
+      <div class="carousel-header">
+        <div class="carousel-header-info">
+          <h3>ANUJ YADAV — RESUME DOCUMENT PREVIEW</h3>
+          <span>B.Tech Computer Science & Engineering | Amity University</span>
+        </div>
+        <button class="modal-close" id="pdf-close-btn" aria-label="Close PDF Preview">&times;</button>
+      </div>
+      <div class="pdf-iframe-container">
+        <iframe title="Anuj Yadav résumé preview" data-src="/assets/anuj-yadav-resume.pdf#toolbar=1&navpanes=0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Ultra-Premium Contact Overlay Suite -->
+  <div id="modal-contact" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Contact Anuj Yadav">
+    <div class="modal-panel drawer-panel contact-drawer" data-lenis-prevent>
+      <div class="modal-header">
+        <div>
+          <h2>CONNECT WITH ANUJ YADAV</h2>
+          <span class="header-subtitle">Available for AI Engineering, Full-Stack Roles &amp; High-Impact Projects</span>
+        </div>
+        <button class="modal-close" data-close="contact" id="contact-close-btn" aria-label="Close Contact">&times;</button>
+      </div>
+
+      <div class="modal-body drawer-scroll-body contact-drawer-body" data-lenis-prevent>
+        
+        <!-- Top Info Banner & Direct Channels -->
+        <div class="contact-channels-grid">
+          
+          <div class="contact-channel-card">
+            <div class="channel-icon">✉️</div>
+            <div class="channel-info">
+              <span class="channel-title">DIRECT EMAIL</span>
+              <a href="mailto:ianujy@gmail.com" class="channel-value">ianujy@gmail.com</a>
+            </div>
+            <button class="copy-pill-btn" id="copy-email-btn" onclick="navigator.clipboard.writeText('ianujy@gmail.com'); this.textContent='COPIED! ✓'; setTimeout(()=>this.textContent='COPY', 2000);">COPY</button>
+          </div>
+
+          <div class="contact-channel-card">
+            <div class="channel-icon">💬</div>
+            <div class="channel-info">
+              <span class="channel-title">WHATSAPP / PHONE</span>
+              <a href="https://wa.me/917838042623" target="_blank" rel="noopener" class="channel-value">+91-7838042623</a>
+            </div>
+            <button class="copy-pill-btn" onclick="navigator.clipboard.writeText('+917838042623'); this.textContent='COPIED! ✓'; setTimeout(()=>this.textContent='COPY', 2000);">COPY</button>
+          </div>
+
+          <div class="contact-channel-card">
+            <div class="channel-icon">📍</div>
+            <div class="channel-info">
+              <span class="channel-title">LOCATION &amp; AVAILABILITY</span>
+              <span class="channel-value">New Delhi, India (Hybrid / Remote)</span>
+            </div>
+            <span class="status-chip">AVAILABLE NOW</span>
+          </div>
+
+        </div>
+
+        <!-- Premium Contact Form -->
+        <div class="contact-form-container">
+          <div class="form-header-badge">
+            <span class="pulse-dot"></span>
+            <span>SEND DIRECT TRANSMISSION</span>
+          </div>
+
+          <form class="cyber-contact-form" id="contact-form">
+            <div class="form-row-2col">
+              <div class="cyber-form-group">
+                <label for="form-name">
+                  <span class="label-icon">👤</span> YOUR NAME
+                </label>
+                <input type="text" id="form-name" placeholder="e.g. Sarah Connor" required autocomplete="name" />
+              </div>
+
+              <div class="cyber-form-group">
+                <label for="form-email">
+                  <span class="label-icon">✉️</span> YOUR EMAIL ADDRESS
+                </label>
+                <input type="email" id="form-email" placeholder="e.g. sarah@cyberdyne.com" required autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="cyber-form-group">
+              <label for="form-message">
+                <span class="label-icon">💬</span> TRANSMISSION / MESSAGE
+              </label>
+              <textarea id="form-message" rows="5" placeholder="Hi Anuj, let's discuss an AI or Full-Stack engineering opportunity..." required></textarea>
+            </div>
+
+            <div class="form-action-row">
+              <button type="submit" class="cyber-submit-btn" id="contact-submit-btn">
+                <span>SEND TRANSMISSION NOW</span>
+                <span class="btn-arrow">→</span>
+              </button>
+
+              <div class="social-pills-row">
+                <a href="https://github.com/ianuj-yadav" target="_blank" rel="noopener" class="social-pill">
+                  <span>GitHub ↗</span>
+                </a>
+                <a href="https://linkedin.com/in/anuj-yadav" target="_blank" rel="noopener" class="social-pill">
+                  <span>LinkedIn ↗</span>
+                </a>
+                <a href="https://wa.me/917838042623" target="_blank" rel="noopener" class="social-pill">
+                  <span>WhatsApp ↗</span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </main> <!-- End main-content-area -->
+
+  <!-- Application Scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

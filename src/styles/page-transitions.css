@@ -1,0 +1,78 @@
+
+/* ==========================================================================
+   Page Transition Engine Styles
+   ========================================================================== */
+
+.main-content-area {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Only the active page will handle scrolling */
+}
+
+/* Base class for all distinct pages/views */
+.page-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  background-color: transparent;
+  /* GSAP will animate opacity and visibility, but we need base state */
+}
+
+.page-view.active-page {
+  opacity: 1;
+  visibility: visible;
+  z-index: 20;
+}
+
+/* The solid curtain that wipes across the screen */
+.page-transition-curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg); /* Match the dark background */
+  z-index: 9999;
+  transform: translateY(100%); /* Start hidden off-bottom */
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional loading spinner or logo inside curtain */
+.page-transition-curtain::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.page-transition-curtain.is-loading::after {
+  opacity: 1;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Update Modal Backdrops to behave as Pages if they have both classes */
+.page-view.modal-backdrop {
+  /* Override modal specific fixed positioning if needed, 
+     though keeping it fixed 100% works fine for a page too */
+  position: absolute;
+  background-color: transparent; /* Remove backdrop dimming, the page is the whole screen now */
+  backdrop-filter: none;
+}
